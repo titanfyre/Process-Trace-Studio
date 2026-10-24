@@ -4,7 +4,7 @@
 
 Capture process creation, process exit and optional EXE/DLL/driver-image load notifications for software integration, troubleshooting and QA. Correlate events using a Windows process-start key rather than PID alone. View them in a native desktop interface, stream CSV from the console or embed the two-file SDK in your application.
 
-> **Engineering preview:** application, SDK and offline tests are available. The new private kernel driver is awaiting Microsoft signing and real Windows VM validation. A working signed-driver installer is not included yet. Compilation and offline tests do not establish runtime driver stability or Windows certification.
+> **Engineering preview:** application, SDK and offline tests are available. A controlled, test-signed Windows 10 VM passed real process/image observations and capture/close stress, including a short targeted Driver Verifier campaign. Microsoft signing, Windows 11, HVCI and broader validation are still pending; a working Microsoft-signed driver installer is not included yet. These tests do not establish universal stability or Windows certification.
 
 ![Offline preview with clearly labelled sample events](docs/app.png)
 

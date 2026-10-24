@@ -18,6 +18,7 @@ HWND heading,subtitle,notice,totals,privacy;
 HFONT font,title;HBRUSH background,field;int dpi=96;
 std::unique_ptr<ProcessTrace::Client> client;std::thread worker;HANDLE cancelEvent;
 std::mutex incomingLock;std::deque<PT_BATCH> incoming;
+std::wstring pendingError;WPARAM epoch=0;
 struct Row {PT_STATS stats;PT_EVENT event;};std::deque<Row> rows;
 PT_STATS latest{};unsigned long long uiDrops=0;bool preview=false,running=false;
 std::wstring message=L"Ready. Capture starts only when you choose Start.";
@@ -41,6 +42,7 @@ void Add(const PT_BATCH& batch){
 void Stop(){
     if(cancelEvent)SetEvent(cancelEvent);if(client)client->Cancel();if(worker.joinable())worker.join();
     if(client){try{latest=client->Status();client->Stop();}catch(const std::exception& e){message=Widen(e.what());}client.reset();}
+    {std::lock_guard<std::mutex> guard(incomingLock);incoming.clear();pendingError.clear();}++epoch;
     if(cancelEvent){CloseHandle(cancelEvent);cancelEvent=nullptr;}running=false;Buttons();InvalidateRect(window,nullptr,FALSE);
 }
 void Start(){
@@ -48,9 +50,10 @@ void Start(){
         Stop();client=std::make_unique<ProcessTrace::Client>();client->Start(Button_GetCheck(images)==BST_CHECKED,Button_GetCheck(paths)==BST_CHECKED);
         latest=client->Status();rows.clear();ListView_DeleteAllItems(list);uiDrops=0;cancelEvent=CreateEventW(nullptr,TRUE,FALSE,nullptr);if(!cancelEvent)throw std::runtime_error("Could not create cancellation event.");
         running=true;message=L"Capturing. Closing this window stops capture and releases the device.";Buttons();
-        worker=std::thread([]{
-            try{while(WaitForSingleObject(cancelEvent,0)!=WAIT_OBJECT_0){auto batch=client->Receive(INFINITE,cancelEvent);if(!batch.stats.version)break;{std::lock_guard<std::mutex> guard(incomingLock);if(incoming.size()==64){uiDrops+=incoming.front().count;incoming.pop_front();}incoming.push_back(batch);}PostMessageW(window,Update,0,0);}}
-            catch(const std::exception& e){auto text=new std::wstring(Widen(e.what()));if(!PostMessageW(window,Finished,0,reinterpret_cast<LPARAM>(text)))delete text;}
+        const WPARAM token=epoch;
+        worker=std::thread([token]{
+            try{while(WaitForSingleObject(cancelEvent,0)!=WAIT_OBJECT_0){auto batch=client->Receive(INFINITE,cancelEvent);if(!batch.stats.version)break;{std::lock_guard<std::mutex> guard(incomingLock);if(incoming.size()==64){uiDrops+=incoming.front().count;incoming.pop_front();}incoming.push_back(batch);}PostMessageW(window,Update,token,0);}}
+            catch(const std::exception& e){{std::lock_guard<std::mutex> guard(incomingLock);pendingError=Widen(e.what());}PostMessageW(window,Finished,token,0);}
         });
     }catch(const std::exception& e){message=Widen(e.what());Stop();}
     InvalidateRect(window,nullptr,FALSE);
@@ -79,8 +82,8 @@ LRESULT CALLBACK Proc(HWND h,UINT m,WPARAM w,LPARAM l){
     case WM_GETMINMAXINFO:{auto p=reinterpret_cast<MINMAXINFO*>(l);p->ptMinTrackSize={S(1040),S(600)};return 0;}
     case WM_DPICHANGED:{dpi=HIWORD(w);auto r=reinterpret_cast<RECT*>(l);Fonts();SetWindowPos(h,nullptr,r->left,r->top,r->right-r->left,r->bottom-r->top,SWP_NOZORDER|SWP_NOACTIVATE);Layout();return 0;}
     case WM_COMMAND:if(LOWORD(w)==1)Start();else if(LOWORD(w)==2){message=L"Capture stopped. The driver is inactive.";Stop();}else if(LOWORD(w)==3)Export();else if(LOWORD(w)==4){wchar_t path[MAX_PATH]{};GetModuleFileNameW(nullptr,path,MAX_PATH);std::wstring location=path;auto p=location.find_last_of(L"\\/");location=location.substr(0,p+1)+L"Dependencies\\ProcessTraceSetup.exe";auto r=ShellExecuteW(h,L"runas",location.c_str(),nullptr,nullptr,SW_SHOWNORMAL);if(reinterpret_cast<INT_PTR>(r)<=32)MessageBoxW(h,L"The signed driver installer is not present in this preview. Download it from the project release after signing and VM validation.",L"Driver setup",MB_ICONINFORMATION);}return 0;
-    case Update:{std::deque<PT_BATCH> received;{std::lock_guard<std::mutex> guard(incomingLock);received.swap(incoming);}for(const auto& b:received)Add(b);return 0;}
-    case Finished:{std::unique_ptr<std::wstring> error(reinterpret_cast<std::wstring*>(l));message=*error;Stop();return 0;}
+    case Update:{if(w!=epoch)return 0;std::deque<PT_BATCH> received;{std::lock_guard<std::mutex> guard(incomingLock);received.swap(incoming);}for(const auto& b:received)Add(b);return 0;}
+    case Finished:{if(w!=epoch)return 0;{std::lock_guard<std::mutex> guard(incomingLock);message=pendingError;}Stop();return 0;}
     case WM_DRAWITEM:{auto d=reinterpret_cast<DRAWITEMSTRUCT*>(l);if(d->CtlType!=ODT_BUTTON)break;bool disabled=(d->itemState&ODS_DISABLED)!=0;HBRUSH brush=CreateSolidBrush(d->CtlID==1&&!disabled?Blue:Panel);HPEN pen=CreatePen(PS_SOLID,1,disabled?Panel:Blue);auto oldBrush=SelectObject(d->hDC,brush);auto oldPen=SelectObject(d->hDC,pen);RoundRect(d->hDC,d->rcItem.left,d->rcItem.top,d->rcItem.right,d->rcItem.bottom,S(10),S(10));SelectObject(d->hDC,oldBrush);SelectObject(d->hDC,oldPen);DeleteObject(brush);DeleteObject(pen);SetBkMode(d->hDC,TRANSPARENT);SetTextColor(d->hDC,disabled?Muted:White);SelectObject(d->hDC,font);wchar_t label[80]{};GetWindowTextW(d->hwndItem,label,80);DrawTextW(d->hDC,label,-1,&d->rcItem,DT_CENTER|DT_VCENTER|DT_SINGLELINE);if(d->itemState&ODS_FOCUS)DrawFocusRect(d->hDC,&d->rcItem);return TRUE;}
     case WM_SETCURSOR:if(LOWORD(l)==HTCLIENT){HWND target=reinterpret_cast<HWND>(w);if((target==start||target==stop||target==save||target==setup||target==images||target==paths)&&IsWindowEnabled(target)){SetCursor(LoadCursorW(nullptr,IDC_HAND));return TRUE;}}break;
     case WM_CTLCOLORSTATIC:case WM_CTLCOLORBTN:SetBkColor(reinterpret_cast<HDC>(w),Back);SetTextColor(reinterpret_cast<HDC>(w),(reinterpret_cast<HWND>(l)==subtitle||reinterpret_cast<HWND>(l)==totals||reinterpret_cast<HWND>(l)==privacy)?Muted:White);return reinterpret_cast<LRESULT>(background);

@@ -1,6 +1,6 @@
 # Validation status
 
-Version 0.1.0, Windows x64 engineering preview. The new kernel package is **unsigned and awaiting Microsoft submission**. No host or VM driver installation, live process capture, Driver Verifier campaign or HLK certification is claimed.
+Version 0.1.0, Windows x64 engineering preview. The submission kernel package is **unsigned and awaiting Microsoft signing**. A copy was test-signed with a temporary certificate inside a disposable Windows 10 VM for the real checks below. That guest test signature is not a Microsoft signature. No driver was installed on the host, and no host security settings were changed.
 
 Completed locally:
 
@@ -12,12 +12,32 @@ Completed locally:
 - The CAB is expanded again and its INF/SYS/CAT/PDB hashes compared with their sources. Its submission folder is `TitanProcessTrace` (17 characters).
 - `docs/app.png` is a preview of synthetic events. No real process list or private machine data is displayed.
 
+## Real Windows 10 guest checks
+
+On Windows 10 `10.0.19045`, an initial controlled test-signed campaign completed **2,516 live assertions**:
+
+- A real, owned short-lived child process produced create and exit events. Its creation time matched `GetProcessTimes`, its process-start key matched across create/exit, its live parent observation matched the harness, and its exit status was the expected `17`.
+- A second capture owner was refused.
+- 100 Start/Stop/close cycles checked session advancement, inactive Stop state and automatic cleanup on client destruction.
+- 100 overlapped Start/close races and 100 pending Receive/close races completed. Reopening the device after each operation confirmed capture remained inactive.
+- The driver unloaded and its owned root device node was removed. The VM returned to its original Off baseline; its nine original checkpoints were preserved.
+
+Driver Verifier was disabled during that initial campaign.
+
+A second **short, targeted Driver Verifier campaign** passed **2,546 live assertions** on the same Windows 10 version. Verifier enable/query evidence identifies exactly `TitanProcessTrace.sys` and the companion `TitanConnectionTrace.sys`, using flags `0x001209bb` (including Special Pool, forced IRQL, pool tracking, I/O, deadlock, security and DDI checks). This was not an exhaustive or long-duration verifier/fault-injection campaign.
+
+The second campaign repeated process create/exit identity, expected exit `17`, ownership, 100 capture/close cycles and 200 raw close-race operations. An additional owned `cmd.exe` child with exit `23` produced **four non-empty IMAGE basenames**. Full-path exposure was rejected and known image identities matched its CREATE identity. The report recorded **zero unknown identities and zero missing names** in that observation. The driver unloaded and its root node was removed; the guest returned to its original Off baseline with the original checkpoints intact.
+
+Both campaigns used guest-only test signing with Secure Boot off. HVCI/Memory Integrity was not validated. Actual operating-system PID reuse was not forced; reused PID values are covered only by offline identity tests. No arbitrary kernel image was loaded, so kernel-image-load coverage is not claimed. Windows 11, the self-contained installers, long-duration/failure stress and production performance benchmarks still require separate coverage.
+
+Private evidence binds the exact unsigned source-package SYS hash to the separately test-signed guest copy. Adding the test signature changes the installed SYS hash; the two hashes are deliberately not represented as identical. The submission CAB itself remains unsigned and unchanged by the guest test. Kernel source, private reports and guest signing material are not included in the public repository.
+
 Required after signing, before calling the driver production-ready:
 
-1. Install/uninstall/reinstall in disposable Windows 10 and 11 x64 VMs; verify signature, device identity, elevation, error reporting and restart handling.
-2. Generate short-lived child processes and DLL/image loads under a controlled harness. Compare create/exit identities and statuses with harness evidence; verify PID reuse and missing-parent semantics.
-3. Stress Start/Stop, timeout/cancellation, process termination, simultaneous clients, handle closure while Start/Receive is submitted, ring overflow and slow consumers. Confirm capture cannot reactivate after cleanup and memory remains bounded.
-4. Exercise removal/uninstall/restart while a reader is pending. Run Driver Verifier with an attached debugger, HVCI/Memory Integrity, Secure Boot and available Windows servicing variants.
+1. Validate the Microsoft-signed package and self-contained UI/console install/uninstall/reinstall/recovery in disposable Windows 10 and 11 x64 VMs; verify device identity, elevation, errors and restart handling. The earlier guest campaign used `devcon`, not the public installer UI.
+2. Extend the owned user-process image observations to broader DLL/kernel-image cases, actual PID reuse where reproducible and unavailable-parent cases.
+3. Broaden concurrent capture, process termination, overflow and slow-consumer stress. The current close/start/receive races are useful coverage, not proof that every Windows concurrency case is covered.
+4. Extend targeted Verifier coverage with longer runs and controlled failure scenarios, removal/uninstall/restart while readers are pending, an attached debugger, HVCI/Memory Integrity, Secure Boot and additional Windows servicing variants.
 5. Measure callback overhead, event throughput and idle usage on stated hardware. No zero-overhead, lossless, zero-latency or universal-compatibility claim has been made.
 
 The installer is designed to reject an unsigned or unrelated catalog/package, serialize setup, preserve unrelated devices/packages, report Windows failures and expose a restart button only when requested. Its offline identity/trust tests do not prove live recovery behavior. Do not publish an unsigned installer as a working signed release.
