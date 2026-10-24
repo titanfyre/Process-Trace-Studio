@@ -1,0 +1,17 @@
+/obj/
+/bin/
+/.vs/
+*.user
+*.suo
+*.pdb
+*.obj
+*.exe
+*.dll
+*.sys
+*.cat
+*.inf
+*.cab
+*.zip
+*.key
+*.pem
+*.pfx
