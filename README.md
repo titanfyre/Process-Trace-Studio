@@ -4,7 +4,7 @@
 
 Capture process creation, process exit and optional EXE/DLL/driver-image load notifications for software integration, troubleshooting and QA. Correlate events using a Windows process-start key rather than PID alone. View them in a native desktop interface, stream CSV from the console or embed the two-file SDK in your application.
 
-> **Engineering preview:** application, SDK and offline tests are available. A controlled, test-signed Windows 10 VM passed real process/image observations and capture/close stress, including a short targeted Driver Verifier campaign. Microsoft signing, Windows 11, HVCI and broader validation are still pending; a working Microsoft-signed driver installer is not included yet. These tests do not establish universal stability or Windows certification.
+> **Microsoft-signed evaluation:** release 0.1.1 includes self-contained installers with the returned signed 0.1.0.0 driver. Its console installer and real process/image capture passed a Windows 10 x64 VM campaign. Windows 11, HVCI and broader qualification remain pending. Microsoft signing is not WHQL certification or a guarantee of universal compatibility.
 
 ![Offline preview with clearly labelled sample events](docs/app.png)
 
@@ -23,7 +23,7 @@ The driver is a passive observer. It does not block processes, bypass access con
 
 ## Try the interface now
 
-Download the preview application from [Releases](https://github.com/titanfyre/Process-Trace-Studio/releases), extract the ZIP and run:
+Download the complete evaluation package from [Releases](https://github.com/titanfyre/Process-Trace-Studio/releases), extract the ZIP and run:
 
 ```powershell
 .\ProcessTraceStudio.exe --preview
@@ -34,9 +34,9 @@ These commands use synthetic data only; they do not open a driver. The repeated 
 
 ## Capture with a validated signed package
 
-After a signed driver release is available:
+Download the complete signed evaluation ZIP from Releases:
 
-1. Extract the complete release ZIP. Run `Dependencies\ProcessTraceSetup.exe` as administrator and select **Install / reinstall**.
+1. Extract the complete release ZIP. Run `ProcessTraceSetup.exe` as administrator and select **Install / reinstall**.
 2. Restart Windows only if setup requests it. Installation leaves capture inactive.
 3. Run `ProcessTraceStudio.exe` as administrator. Leave full paths disabled unless needed, then select **Start capture**.
 4. Perform your software test. **Stop** or close the client to stop collection and release ownership.
@@ -110,3 +110,12 @@ For supported redistribution, custom integration or deployment assistance, conta
 Microsoft signing establishes trust in a submitted binary; it does not establish that the product is Windows Certified or universally compatible. [Microsoft signing guidance](https://learn.microsoft.com/windows-hardware/drivers/dashboard/driver-signing-offerings). Existing tools such as [Sysmon](https://learn.microsoft.com/sysinternals/downloads/sysmon) cover many similar telemetry needs; this project's focus is an embeddable, bounded C++ data stream.
 
 This project is intended for lawful development, diagnostics and administration on authorized systems. You are responsible for your use, deployment and compliance with applicable requirements. Software is provided under the license's warranty and liability terms; it does not authorize illegal activity.
+
+## Signed evaluation download
+
+Release 0.1.1 bundles the returned Microsoft-signed 0.1.0.0 driver in the
+self-contained UI and console installers. Catalog trust, INF/SYS membership and
+preserved executable content were checked. The console installer and real driver
+passed a Windows 10 build 19045 x64 VM campaign; previous normal/targeted Verifier
+checks covered the same submitted code. Windows 11, HVCI, extended coexistence and
+production qualification remain pending. Microsoft signing is not certification.

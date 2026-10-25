@@ -1,6 +1,20 @@
 # Validation status
 
-Version 0.1.0, Windows x64 engineering preview. The submission kernel package is **unsigned and awaiting Microsoft signing**. A copy was test-signed with a temporary certificate inside a disposable Windows 10 VM for the real checks below. That guest test signature is not a Microsoft signature. No driver was installed on the host, and no host security settings were changed.
+## Returned Microsoft package (2026-10-25)
+
+The Microsoft Hardware Compatibility Publisher catalog, SYS/INF membership and
+preserved submitted executable content were checked. The self-contained console
+installer then installed the exact returned package on Windows 10 build 19045
+x64; existing real-driver functional tests passed, and the owned node was removed
+and the driver unloaded. The VM's original baseline and nine historical snapshots
+were preserved. This campaign used the Microsoft-signed SYS/CAT without adding a
+guest test signature. The guest was in test mode for a separate unsigned network
+project, so Secure Boot/HVCI compatibility is not established by this result.
+The returned package also passed the repeated real-driver campaign with targeted
+standard Driver Verifier enabled. The UI install/uninstall/recovery paths and
+Windows 11 still need broader testing.
+
+Version 0.1.0, Windows x64 engineering preview. The submission kernel package is **the original unsigned input, now returned by Microsoft with a trusted signature**. A copy was test-signed with a temporary certificate inside a disposable Windows 10 VM for the real checks below. That guest test signature is not a Microsoft signature. No driver was installed on the host, and no host security settings were changed.
 
 Completed locally:
 
