@@ -1,6 +1,6 @@
 # Protocol and data ownership
 
-`SDK/ProcessTrace.h` contains the pointer-free version-1 wire structures and the small deterministic ring/request/name helpers shared with the private kernel implementation. `ProcessTrace.cpp` is the user-mode SDK. Do not change packing or use a different wire version silently.
+`SDK/ProcessTrace.h` contains the pointer-free version-1 wire structures and the small deterministic ring/request/name helpers shared with the evaluation driver implementation documented in [driver/README.md](../driver/README.md). `ProcessTrace.cpp` is the user-mode SDK. Do not change packing or use a different wire version silently.
 
 | Structure | Bytes | Use |
 |---|---:|---|

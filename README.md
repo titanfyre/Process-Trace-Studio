@@ -101,6 +101,12 @@ Process-start keys are Windows identities within a boot, not persistent device i
 
 ## Build and validation
 
+Demo/evaluation driver source is available; see [driver/README.md](driver/README.md) for
+build instructions and separate evaluation-source terms. Those terms apply to
+Titan-authored driver code. Third-party source licenses and existing application/SDK
+licenses remain applicable. Full/commercial implementation and private signing or
+activation material are excluded.
+
 Windows 10 2004+ / Windows 11 x64 is the intended initial target. Windows Server, ARM64 and WHQL/HLK certification are not claimed.
 
 ```powershell
@@ -112,7 +118,7 @@ Windows 10 2004+ / Windows 11 x64 is the intended initial target. Windows Server
 
 Outputs are under `obj/Build/bin/Release` or `obj/Asan/bin/Release`. The build includes GUI, CLI, offline tests and installer sources. An installer built without `-DriverPackageDirectory` has no embedded driver and cannot install one. Only a separately validated Microsoft-signed package should be supplied through that parameter.
 
-See [validation results and remaining runtime checks](docs/VALIDATION.md). The public repository contains application, installer and SDK source; the original kernel source remains private.
+See [validation results and remaining runtime checks](docs/VALIDATION.md). The public repository contains application, installer and SDK source; Demo/evaluation driver source is documented in [driver/README.md](driver/README.md).
 
 ## OEM integration and support
 
