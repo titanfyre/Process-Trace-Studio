@@ -2,20 +2,27 @@
   "project": "Process-Trace-Studio",
   "packages": [
     {
-      "directory": "Process-Trace-Studio-CPP-vcpkg",
+      "directory": "packaging/native",
       "central_registry_status": "not_published",
-      "distribution": "GitHub source and downloadable release artifacts"
+      "distribution": "GitHub source and downloadable release artifacts",
+      "source_layout": "Shared native SDK source; registry recipes are kept alongside CMakeLists.txt."
     },
     {
-      "directory": "Process-Trace-Studio-CPP-conan",
+      "directory": "packaging/native",
       "central_registry_status": "not_published",
-      "distribution": "GitHub source and downloadable release artifacts"
+      "distribution": "GitHub source and downloadable release artifacts",
+      "source_layout": "Shared native SDK source; registry recipes are kept alongside CMakeLists.txt."
     },
     {
-      "directory": "Process-Trace-Studio-CPP-nuget",
+      "directory": "packaging/native",
       "central_registry_status": "not_published",
-      "distribution": "GitHub source and downloadable release artifacts"
+      "distribution": "GitHub source and downloadable release artifacts",
+      "source_layout": "Shared native SDK source; registry recipes are kept alongside CMakeLists.txt."
     }
   ],
-  "notes": "Registry accounts or community acceptance are separate. No missing language binding is represented as implemented."
+  "notes": "Registry accounts or community acceptance are separate. No missing language binding is represented as implemented.",
+  "native_source_archive": {
+    "url": "https://github.com/titanfyre/Process-Trace-Studio/releases/download/sdk-v0.1.0/process-trace-studio-sdk-0.1.0.tar.gz",
+    "sha256": "820fd7c7a4332b55101db7bc7330f2db719cb3b2f16c52906116e363015a0389"
+  }
 }
