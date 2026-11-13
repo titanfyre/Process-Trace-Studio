@@ -7,7 +7,7 @@ Current source layout and registry coverage. A GitHub download is distinct from 
 | CPP/vcpkg | published_custom_registry | process-trace-studio |
 | CPP/conan | published_custom_source_index | [process-trace-studio](https://github.com/TitanCSA/sdk-packages/tree/089bc73095aa8eda89bacbe10d0b9e58394b0207/conan-index) [Source](packaging/native/) |
 | CPP/nuget | paused_pending_owner_email_confirmation | Process-Trace-Studio.Native |
-| NET/nuget | built_verified_publication_on_hold_by_owner | ProcessTraceStudio.SDK [Source](Process-Trace-Studio-NET-nuget/) |
+| NET/nuget | built_verified_requires_trusted_publishing_policy | ProcessTraceStudio.SDK [Source](Process-Trace-Studio-NET-nuget/) |
 | Python/pypi | built_fixture_and_production_verified | process-trace-studio [Source](Process-Trace-Studio-Python-pypi/) |
 | Python/conda-forge | custom_channel_install_verified_requires_conda_forge_review | [process-trace-studio](https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel) [Source](packaging/conda/) |
 | Rust/cargo | published_install_verified | [process-trace-studio](https://crates.io/crates/process-trace-studio) [Source](Process-Trace-Studio-Rust-cargo/) |
