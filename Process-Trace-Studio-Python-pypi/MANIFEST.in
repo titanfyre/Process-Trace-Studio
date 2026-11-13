@@ -1,0 +1,3 @@
+include README.md LICENSE
+recursive-include process_trace_studio *.py *.dll
+recursive-include docs *

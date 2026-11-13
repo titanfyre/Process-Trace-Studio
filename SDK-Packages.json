@@ -12,6 +12,76 @@
         ]
       },
       "distribution": "Shared native source; registry publication is reported separately below"
+    },
+    {
+      "directory": "Process-Trace-Studio-C-ffi",
+      "distribution": "Native C ABI adapter to the original project SDK",
+      "dll": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
+    },
+    {
+      "directory": "Process-Trace-Studio-Python-pypi",
+      "language": "Python",
+      "registry": "pypi",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-Ruby-rubygems",
+      "language": "Ruby",
+      "registry": "rubygems",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-Go-modules",
+      "language": "Go",
+      "registry": "modules",
+      "name": "process-trace-studio",
+      "version": "v1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-Rust-cargo",
+      "language": "Rust",
+      "registry": "cargo",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-Java-maven",
+      "language": "Java",
+      "registry": "maven",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-Dart-pub-dev",
+      "language": "Dart",
+      "registry": "pub-dev",
+      "name": "process_trace_studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-NET-nuget",
+      "language": "NET",
+      "registry": "nuget",
+      "name": "ProcessTraceStudio.SDK",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "Process-Trace-Studio-PowerShell-gallery",
+      "language": "PowerShell",
+      "registry": "gallery",
+      "name": "ProcessTraceStudio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
     }
   ],
   "notes": "Registry accounts or community acceptance are separate. No missing language binding is represented as implemented.",

@@ -1,0 +1,18 @@
+[build-system]
+requires=["setuptools>=77","wheel>=0.43"]
+build-backend="setuptools.build_meta"
+[project]
+name="process-trace-studio"
+version="1.0.0"
+description="Windows x64 Process-Trace-Studio direct SDK"
+requires-python=">=3.10"
+license="MIT"
+readme="README.md"
+[project.urls]
+Repository="https://github.com/titanfyre/Process-Trace-Studio"
+[tool.setuptools]
+packages=["process_trace_studio"]
+[tool.setuptools.package-data]
+process_trace_studio=["*.dll"]
+[tool.setuptools.data-files]
+"share/process-trace-studio/docs"=["docs/*","LICENSE"]
