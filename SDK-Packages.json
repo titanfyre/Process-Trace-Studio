@@ -3,99 +3,63 @@
   "packages": [
     {
       "directory": "packaging/native",
-      "build_system": "CMake",
-      "registry_recipes": {
-        "vcpkg": "packaging/native/portfile.cmake",
-        "Conan": "packaging/native/conanfile.py",
-        "NuGet": [
-          "packaging/native/TitanCSA.ProcessTraceStudio.Native.nuspec"
-        ]
-      },
-      "distribution": "Shared native source; registry publication is reported separately below"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/packaging/native",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-C-ffi",
-      "distribution": "Native C ABI adapter to the original project SDK",
-      "dll": "ProcessTraceStudioJsonSDK.dll",
-      "api_prefix": "process_trace_studio_json_"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-C-ffi",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Python-pypi",
-      "language": "Python",
-      "registry": "pypi",
-      "name": "process-trace-studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Python-pypi",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Ruby-rubygems",
-      "language": "Ruby",
-      "registry": "rubygems",
-      "name": "process-trace-studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Ruby-rubygems",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Go-modules",
-      "language": "Go",
-      "registry": "modules",
-      "name": "process-trace-studio",
-      "version": "v1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Go-modules",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Rust-cargo",
-      "language": "Rust",
-      "registry": "cargo",
-      "name": "process-trace-studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Rust-cargo",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Java-maven",
-      "language": "Java",
-      "registry": "maven",
-      "name": "process-trace-studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Java-maven",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-Dart-pub-dev",
-      "language": "Dart",
-      "registry": "pub-dev",
-      "name": "process_trace_studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-Dart-pub-dev",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-JavaScript-npm",
-      "language": "JavaScript",
-      "registry": "npm",
-      "name": "process-trace-studio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-JavaScript-npm",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-NET-nuget",
-      "language": "NET",
-      "registry": "nuget",
-      "name": "ProcessTraceStudio.SDK",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-NET-nuget",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "Process-Trace-Studio-PowerShell-gallery",
-      "language": "PowerShell",
-      "registry": "gallery",
-      "name": "ProcessTraceStudio",
-      "version": "1.0.0",
-      "distribution": "Documented native SDK; registry receipt tracked independently"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/Process-Trace-Studio-PowerShell-gallery",
+      "location": "central_sdk_repository"
     },
     {
       "directory": "packaging/conda",
-      "language": "Python",
-      "registry": "conda-forge",
-      "distribution": "Source-build recipe; official review and custom channel availability reported separately"
+      "source_url": "https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/packaging/conda",
+      "location": "central_sdk_repository"
     }
   ],
   "notes": "Registry accounts or community acceptance are separate. No missing language binding is represented as implemented.",
@@ -185,8 +149,7 @@
       "recipe_format": "v1",
       "v1_source_build_tests_passed": true,
       "personal_maintainer_confirmation_required": true,
-      "official_review_status": "v1_recipe_prepared_requires_submission_or_existing_pr_update",
-      "github_directory": "packaging/conda"
+      "official_review_status": "v1_recipe_prepared_requires_submission_or_existing_pr_update"
     },
     "Rust/cargo": {
       "status": "published_install_verified",
@@ -315,5 +278,8 @@
       "repository": "https://github.com/TitanCSA/process-trace-studio-php"
     }
   },
-  "coverage_note": "Missing language bindings are explicitly listed. Published GitHub archives are distinct from central registry acceptance. Local organized SDK folders are retained."
+  "coverage_note": "SDK source directories moved to central repository. Product source, prior tags and original releases are separate.",
+  "central_sdk_repository": "https://github.com/TitanCSA/sdk-packages",
+  "central_sdk_directory": "projects/Process-Trace-Studio",
+  "central_sdk_source_commit": "5da8260cfafc42181dbcca6196868d049f2b3ebb"
 }
