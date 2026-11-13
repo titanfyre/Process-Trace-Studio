@@ -140,7 +140,7 @@ production qualification remain pending. Microsoft signing is not certification.
 <!-- central-sdk-packages:start -->
 ## SDK : langages et installation
 
-Les sources, licences, guides API et exemples des SDK sont regroupes dans [le depot dedie](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio). Choisis ton langage ci-dessous, puis execute sa commande dans le dossier de ton application.
+Les sources, licences, guides API et exemples sont regroupes dans [le depot SDK dedie](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio). Choisis le langage de ton application puis execute sa commande dans son dossier.
 
 | Langage / registre | Disponibilite | Installation / utilisation |
 | --- | --- | --- |
@@ -161,9 +161,7 @@ Les sources, licences, guides API et exemples des SDK sont regroupes dans [le de
 | Ruby / RubyGems | Publie et verifie | `gem install process-trace-studio -v 1.0.0` |
 | PHP / Composer | Pas encore disponible / validation en cours | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
 
-Pour vcpkg et Conan, configure d abord le registre TitanCSA avec [ces instructions](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md#c-et-c). Pour Java/Kotlin, le guide donne le bloc Maven/Gradle a ajouter. Windows x64 est requis pour les bindings natifs ; les pilotes/applications restent a installer separement.
+Pour vcpkg et Conan, configure d abord le registre TitanCSA avec [le guide complet](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md). Le guide explique aussi Maven/Gradle, les prerequis et le chargement des DLL. Les pilotes/applications du produit sont installes separement. Les commandes marquees prevues ne sont pas encore disponibles.
 
-Les commandes indiquees comme prevues ne sont pas encore disponibles. Les versions Go/JitPack existantes utilisent les anciens tags conserves ; aucun ancien import Go n est renomme.
-
-[Guide complet, prerequis et exemples](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md).
+Les anciens imports Go et versions JitPack gardent leurs tags. Pour les anciennes archives SDK, utilise [les liens de remplacement](https://github.com/TitanCSA/sdk-packages/blob/main/release-assets/URL-MIGRATION.json).
 <!-- central-sdk-packages:end -->
