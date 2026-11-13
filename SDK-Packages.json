@@ -90,6 +90,12 @@
       "name": "ProcessTraceStudio",
       "version": "1.0.0",
       "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
+      "directory": "packaging/conda",
+      "language": "Python",
+      "registry": "conda-forge",
+      "distribution": "Source-build recipe; official review and custom channel availability reported separately"
     }
   ],
   "notes": "Registry accounts or community acceptance are separate. No missing language binding is represented as implemented.",
@@ -101,7 +107,7 @@
     "CPP/vcpkg": {
       "status": "published_custom_registry",
       "registry": "https://github.com/TitanCSA/vcpkg-registry",
-      "baseline": "33fd43f72d7137f6ebaac4c1eeab001f66bf3a98",
+      "baseline": "9a706cf6992544778eb26a8b4244e303292f1ce6",
       "port": "process-trace-studio",
       "microsoft_curated_registry": false,
       "legacy_port": "process-trace-studio-sdk",
@@ -114,6 +120,8 @@
       "status": "public_recipe_builds_locally",
       "conan_center": false,
       "directory": "Process-Trace-Studio-CPP-conan",
+      "local_recipe_consumer_verified": true,
+      "minimum_cppstd": 17,
       "github_directory": "packaging/native"
     },
     "CPP/nuget": {
@@ -122,46 +130,179 @@
       "version": "0.1.0",
       "registry_published": false,
       "consumer_build_verified": true,
-      "documentation_bundled": true
+      "documentation_bundled": true,
+      "publication_on_hold_by_owner": true
     },
     "NET/nuget": {
-      "status": "binding_not_implemented"
+      "status": "built_verified_publication_on_hold_by_owner",
+      "name": "ProcessTraceStudio.SDK",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-NET-nuget",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": null,
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_",
+      "publication_on_hold_by_owner": true
     },
     "Python/pypi": {
-      "status": "binding_not_implemented"
+      "status": "built_fixture_and_production_verified",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Python-pypi",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": null,
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "Python/conda-forge": {
-      "status": "binding_not_implemented"
+      "status": "built_tested_requires_source_publication_and_official_review",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Python-conda-forge",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": null,
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_",
+      "recipe_format": "v1",
+      "v1_source_build_tests_passed": true,
+      "personal_maintainer_confirmation_required": true,
+      "official_review_status": "v1_recipe_prepared_requires_submission_or_existing_pr_update",
+      "github_directory": "packaging/conda"
     },
     "Rust/cargo": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Rust-cargo",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://crates.io/crates/process-trace-studio",
+      "public_consumer_verified": true,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "JavaScript/npm": {
-      "status": "binding_not_implemented"
+      "status": "awaiting_browser_publication_authentication",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-JavaScript-npm",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": "https://www.npmjs.com/package/process-trace-studio",
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "Java/maven": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Java-maven",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://central.sonatype.com/artifact/io.github.titancsa/process-trace-studio/1.0.0",
+      "public_consumer_verified": true,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_",
+      "coordinates": "io.github.titancsa:process-trace-studio:1.0.0",
+      "java_package": "titancsa.products.process_trace_studio"
     },
     "Java/jitpack": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "process-trace-studio",
+      "version": "java-sdk-v1.0.0",
+      "directory": "Process-Trace-Studio-Java-maven",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://jitpack.io/#titanfyre/Process-Trace-Studio/java-sdk-v1.0.0",
+      "public_consumer_verified": true,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_",
+      "coordinates": "com.github.titanfyre:Process-Trace-Studio:java-sdk-v1.0.0",
+      "java_package": "titancsa.products.process_trace_studio"
     },
     "Go/modules": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "process-trace-studio",
+      "version": "v1.0.0",
+      "directory": "Process-Trace-Studio-Go-modules",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0",
+      "public_consumer_verified": true,
+      "module": "github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "Go/pkg-go-dev": {
-      "status": "binding_not_implemented"
+      "status": "indexed_verified",
+      "url": "https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0"
     },
     "PowerShell/gallery": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "ProcessTraceStudio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-PowerShell-gallery",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://www.powershellgallery.com/packages/ProcessTraceStudio/1.0.0",
+      "public_consumer_verified": true,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "Dart/pub-dev": {
-      "status": "binding_not_implemented"
+      "status": "built_fixture_and_production_verified",
+      "name": "process_trace_studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Dart-pub-dev",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": null,
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "Ruby/rubygems": {
-      "status": "binding_not_implemented"
+      "status": "published_install_verified",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-Ruby-rubygems",
+      "registry_published": true,
+      "documentation_bundled": true,
+      "url": "https://rubygems.org/gems/process-trace-studio",
+      "public_consumer_verified": true,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_"
     },
     "PHP/packagist": {
-      "status": "binding_not_implemented"
+      "status": "composer_source_and_tag_published",
+      "name": "titancsa/process-trace-studio",
+      "version": "1.0.0",
+      "directory": "Process-Trace-Studio-PHP-packagist",
+      "registry_published": false,
+      "documentation_bundled": true,
+      "url": "https://packagist.org/packages/titancsa/process-trace-studio",
+      "public_consumer_verified": false,
+      "module": "process_trace_studio",
+      "dll_name": "ProcessTraceStudioJsonSDK.dll",
+      "api_prefix": "process_trace_studio_json_",
+      "repository": "https://github.com/TitanCSA/process-trace-studio-php"
     }
   },
   "coverage_note": "Missing language bindings are explicitly listed. Published GitHub archives are distinct from central registry acceptance. Local organized SDK folders are retained."
