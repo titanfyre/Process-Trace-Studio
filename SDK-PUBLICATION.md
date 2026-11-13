@@ -2,30 +2,30 @@
 
 Projet : [Process-Trace-Studio](https://github.com/titanfyre/Process-Trace-Studio). [Sources et documentation des SDK](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio).
 
-Choisis la ligne correspondant au langage de ton application. Installe son outil habituel (Node.js/npm, Python/pip, .NET, etc.), puis execute la commande dans le dossier de ton application. Les pilotes et applications requis restent a installer separement selon le README du projet.
+Choisis le paquet a installer. Installe son outil habituel (Node.js/npm, Python/pip, .NET, etc.), puis execute la commande dans le dossier de ton application. Les pilotes et applications requis restent a installer separement selon le README du projet.
 
 Les SDK natifs sont destines a Windows x64. Java utilise Java22+ (Kotlin passe par le SDK Java). Flutter utilise le SDK Dart ; le chargement de la DLL doit etre configure dans l application. AutoHotInterceptor .NET utilise .NET Framework4.8.
 
-| Langage / registre | Disponibilite | Installation / utilisation |
-| --- | --- | --- |
-| C++ / vcpkg | Registre TitanCSA disponible (configuration ci-dessous) | `vcpkg install process-trace-studio:x64-windows` |
-| C++ / Conan | Registre TitanCSA disponible (configuration ci-dessous) | `conan install --requires=process-trace-studio/0.1.0 -r titancsa --build=missing -s compiler.cppstd=17` |
-| C++ / NuGet natif | Publie et verifie | `Install-Package Process-Trace-Studio.Native -Version 0.1.0` |
-| C# / .NET | Publie et verifie | `dotnet add package ProcessTraceStudio.SDK --version 1.0.0` |
-| Python / pip | Pas encore disponible / validation en cours | Commande prevue apres publication : `python -m pip install process-trace-studio==1.0.0` |
-| Python / Conda | Canal TitanCSA disponible ; acceptation conda-forge encore en attente | `conda install --override-channels -c https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel -c conda-forge process-trace-studio` |
-| Rust / Cargo | Publie et verifie | `cargo add process-trace-studio@1.0.0` |
-| JavaScript et TypeScript / npm | Pas encore disponible / validation en cours | Commande prevue apres publication : `npm install process-trace-studio@1.0.0` |
-| Java et Kotlin / Maven Central | Publie et verifie | `io.github.titancsa:process-trace-studio:1.0.0 (pom.xml / Gradle)` |
-| Java et Kotlin / JitPack | Publie et verifie | `com.github.titanfyre:Process-Trace-Studio:java-sdk-v1.0.0 (avec le depot JitPack)` |
-| Go / Go Modules | Publie et verifie | `go get github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
-| Go / pkg.go.dev | Publie et verifie | `Documentation : https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
-| PowerShell / Gallery | Publie et verifie | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
-| Dart et Flutter / pub.dev | Pas encore disponible / validation en cours | Commande prevue apres publication : `dart pub add process_trace_studio:1.0.0` |
-| Ruby / RubyGems | Publie et verifie | `gem install process-trace-studio -v 1.0.0` |
-| PHP / Composer | Pas encore disponible / validation en cours | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
+| Paquet | Registre | Disponibilite | Installation / utilisation |
+| --- | --- | --- | --- |
+| `process-trace-studio` | vcpkg | Registre TitanCSA disponible (configuration ci-dessous) | `vcpkg install process-trace-studio:x64-windows` |
+| `process-trace-studio` | Conan | Registre TitanCSA disponible (configuration ci-dessous) | `conan install --requires=process-trace-studio/0.1.0 -r titancsa --build=missing -s compiler.cppstd=17` |
+| `Process-Trace-Studio.Native` | NuGet | Publie et verifie | `Install-Package Process-Trace-Studio.Native -Version 0.1.0` |
+| `ProcessTraceStudio.SDK` | NuGet | Publie et verifie | `dotnet add package ProcessTraceStudio.SDK --version 1.0.0` |
+| `process_trace_studio` | PyPI | Pas encore disponible / validation en cours | Commande prevue apres publication : `python -m pip install process-trace-studio==1.0.0` |
+| `process-trace-studio` | Conda | Canal TitanCSA disponible ; acceptation conda-forge encore en attente | `conda install --override-channels -c https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel -c conda-forge process-trace-studio` |
+| `process_trace_studio` | crates.io | Publie et verifie | `cargo add process-trace-studio@1.0.0` |
+| `process_trace_studio` | npm | Pas encore disponible / validation en cours | Commande prevue apres publication : `npm install process-trace-studio@1.0.0` |
+| `io.github.titancsa:process-trace-studio` | Maven Central | Publie et verifie | `io.github.titancsa:process-trace-studio:1.0.0 (pom.xml / Gradle)` |
+| `com.github.titanfyre:Process-Trace-Studio` | JitPack | Publie et verifie | `com.github.titanfyre:Process-Trace-Studio:java-sdk-v1.0.0 (avec le depot JitPack)` |
+| `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | Go Modules | Publie et verifie | `go get github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
+| `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | pkg.go.dev | Publie et verifie | `Documentation : https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
+| `process_trace_studio` | PowerShell Gallery | Publie et verifie | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
+| `process_trace_studio` | pub.dev | Pas encore disponible / validation en cours | Commande prevue apres publication : `dart pub add process_trace_studio:1.0.0` |
+| `process_trace_studio` | RubyGems | Publie et verifie | `gem install process-trace-studio -v 1.0.0` |
+| `process_trace_studio` | Packagist | Pas encore disponible / validation en cours | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
 
-## C et C++
+## Configuration vcpkg et Conan
 
 Les sources et headers C / C++ sont dans le dossier central de ce projet. Les headers C se trouvent dans les dossiers `*-C-ffi` ou `*-C-json` (Interceptor-MultiLang : `native/`). Les paquets natifs C++ et la disponibilite du bridge C sont distincts ; consulte leur README avant de lier une application C.
 
@@ -56,7 +56,7 @@ conan remote add titancsa ./sdk-packages/conan-index -t local-recipes-index
 
 Execute ensuite la commande Conan du tableau. Ce registre construit les bibliotheques depuis leurs sources ; il est distinct de ConanCenter. La commande NuGet native s execute dans la console du gestionnaire de packages de Visual Studio.
 
-## Java et Kotlin
+## Configuration Maven et JitPack
 
 Dans le bloc `<dependencies>` de ton `pom.xml` :
 
