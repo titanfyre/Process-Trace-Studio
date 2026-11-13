@@ -6,12 +6,12 @@ Current source layout and registry coverage. A GitHub download is distinct from 
 | --- | --- | --- |
 | CPP/vcpkg | published_custom_registry | process-trace-studio |
 | CPP/conan | published_custom_source_index | [process-trace-studio](https://github.com/TitanCSA/sdk-packages/tree/089bc73095aa8eda89bacbe10d0b9e58394b0207/conan-index) [Source](packaging/native/) |
-| CPP/nuget | account_email_confirmed_requires_matching_trusted_publishing_policy | Process-Trace-Studio.Native |
-| NET/nuget | built_verified_requires_trusted_publishing_policy | ProcessTraceStudio.SDK [Source](Process-Trace-Studio-NET-nuget/) |
+| CPP/nuget | published_payload_verified | [Process-Trace-Studio.Native](https://www.nuget.org/packages/Process-Trace-Studio.Native/0.1.0) |
+| NET/nuget | published_payload_verified | [ProcessTraceStudio.SDK](https://www.nuget.org/packages/ProcessTraceStudio.SDK/1.0.0) |
 | Python/pypi | built_fixture_and_production_verified | process-trace-studio [Source](Process-Trace-Studio-Python-pypi/) |
 | Python/conda-forge | custom_channel_install_verified_requires_conda_forge_review | [process-trace-studio](https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel) [Source](packaging/conda/) |
 | Rust/cargo | published_install_verified | [process-trace-studio](https://crates.io/crates/process-trace-studio) [Source](Process-Trace-Studio-Rust-cargo/) |
-| JavaScript/npm | registry_publication_requires_action | [process-trace-studio](https://www.npmjs.com/package/process-trace-studio) [Source](Process-Trace-Studio-JavaScript-npm/) |
+| JavaScript/npm | registry_rate_limit_wait | [process-trace-studio](https://www.npmjs.com/package/process-trace-studio) [Source](Process-Trace-Studio-JavaScript-npm/) |
 | Java/maven | published_install_verified | [process-trace-studio](https://central.sonatype.com/artifact/io.github.titancsa/process-trace-studio/1.0.0) [Source](Process-Trace-Studio-Java-maven/) |
 | Java/jitpack | published_install_verified | [process-trace-studio](https://jitpack.io/#titanfyre/Process-Trace-Studio/java-sdk-v1.0.0) [Source](Process-Trace-Studio-Java-maven/) |
 | Go/modules | published_install_verified | [process-trace-studio](https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0) [Source](Process-Trace-Studio-Go-modules/) |
