@@ -89,9 +89,9 @@
       "registry_published": true,
       "name": "process-trace-studio",
       "version": "0.1.0",
-      "url": "https://github.com/TitanCSA/sdk-packages/tree/089bc73095aa8eda89bacbe10d0b9e58394b0207/conan-index",
+      "url": "https://github.com/TitanCSA/sdk-packages/tree/776bbd32e2dd7c1ffb484bea0121ef6558af3069/conan-index",
       "index_type": "local-recipes-index",
-      "index_commit": "089bc73095aa8eda89bacbe10d0b9e58394b0207",
+      "index_commit": "776bbd32e2dd7c1ffb484bea0121ef6558af3069",
       "github_directory": "packaging/native"
     },
     "CPP/nuget": {
@@ -149,7 +149,8 @@
       "recipe_format": "v1",
       "v1_source_build_tests_passed": true,
       "personal_maintainer_confirmation_required": true,
-      "official_review_status": "v1_recipe_prepared_requires_submission_or_existing_pr_update"
+      "pull_request": "https://github.com/conda-forge/staged-recipes/pull/35643",
+      "official_review_status": "submitted_requires_ci_review_and_personal_maintainer_confirmation"
     },
     "Rust/cargo": {
       "status": "published_install_verified",
