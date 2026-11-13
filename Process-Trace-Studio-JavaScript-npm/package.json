@@ -1,0 +1,33 @@
+{
+  "name": "process-trace-studio",
+  "version": "1.0.0",
+  "description": "Direct Windows x64 Process-Trace-Studio JavaScript and TypeScript SDK",
+  "license": "MIT",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "prebuilds/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titanfyre/Process-Trace-Studio.git",
+    "directory": "Process-Trace-Studio-JavaScript-npm"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

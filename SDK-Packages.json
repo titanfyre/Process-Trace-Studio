@@ -68,6 +68,14 @@
       "distribution": "Documented native SDK; registry receipt tracked independently"
     },
     {
+      "directory": "Process-Trace-Studio-JavaScript-npm",
+      "language": "JavaScript",
+      "registry": "npm",
+      "name": "process-trace-studio",
+      "version": "1.0.0",
+      "distribution": "Documented native SDK; registry receipt tracked independently"
+    },
+    {
       "directory": "Process-Trace-Studio-NET-nuget",
       "language": "NET",
       "registry": "nuget",
