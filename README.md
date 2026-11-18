@@ -148,7 +148,7 @@ Les sources, licences, guides API et exemples sont regroupes dans [le depot SDK 
 | PowerShell Gallery | `ProcessTraceStudio` | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
 | pub.dev | `process_trace_studio` | Commande prevue apres publication : `dart pub add process_trace_studio:1.0.0` |
 | RubyGems | `process-trace-studio` | `gem install process-trace-studio -v 1.0.0` |
-| Packagist | `titancsa/process-trace-studio` | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
+| Packagist | `titancsa/process-trace-studio` | `composer require titancsa/process-trace-studio:1.0.0` |
 
 Pour vcpkg et Conan, configure d abord le registre TitanCSA avec [le guide complet](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md). Le guide explique aussi Maven/Gradle, les prerequis et le chargement des DLL. Les pilotes/applications du produit sont installes separement. Les commandes marquees prevues ne sont pas encore disponibles.
 
