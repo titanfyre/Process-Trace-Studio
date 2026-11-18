@@ -137,18 +137,18 @@ Les sources, licences, guides API et exemples sont regroupes dans [le depot SDK 
 | Conan | `process-trace-studio` | `conan install --requires=process-trace-studio/0.1.0 -r titancsa --build=missing -s compiler.cppstd=17` |
 | NuGet | `Process-Trace-Studio.Native` | `Install-Package Process-Trace-Studio.Native -Version 0.1.0` |
 | NuGet | `ProcessTraceStudio.SDK` | `dotnet add package ProcessTraceStudio.SDK --version 1.0.0` |
-| PyPI | `process_trace_studio` | Commande prevue apres publication : `python -m pip install process-trace-studio==1.0.0` |
+| PyPI | `process-trace-studio` | Commande prevue apres publication : `python -m pip install process-trace-studio==1.0.0` |
 | Conda | `process-trace-studio` | `conda install --override-channels -c https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel -c conda-forge process-trace-studio` (canal TitanCSA) |
-| crates.io | `process_trace_studio` | `cargo add process-trace-studio@1.0.0` |
-| npm | `process_trace_studio` | Commande prevue apres publication : `npm install process-trace-studio@1.0.0` |
+| crates.io | `process-trace-studio` | `cargo add process-trace-studio@1.0.0` |
+| npm | `process-trace-studio` | Commande prevue apres publication : `npm install process-trace-studio@1.0.0` |
 | Maven Central | `io.github.titancsa:process-trace-studio` | `io.github.titancsa:process-trace-studio:1.0.0 (pom.xml / Gradle)` |
 | JitPack | `com.github.titanfyre:Process-Trace-Studio` | `com.github.titanfyre:Process-Trace-Studio:java-sdk-v1.0.0 (avec le depot JitPack)` |
 | Go Modules | `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | `go get github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
 | pkg.go.dev | `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | `Documentation : https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
-| PowerShell Gallery | `process_trace_studio` | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
+| PowerShell Gallery | `ProcessTraceStudio` | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
 | pub.dev | `process_trace_studio` | Commande prevue apres publication : `dart pub add process_trace_studio:1.0.0` |
-| RubyGems | `process_trace_studio` | `gem install process-trace-studio -v 1.0.0` |
-| Packagist | `process_trace_studio` | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
+| RubyGems | `process-trace-studio` | `gem install process-trace-studio -v 1.0.0` |
+| Packagist | `titancsa/process-trace-studio` | Commande prevue apres publication : `composer require titancsa/process-trace-studio:1.0.0` |
 
 Pour vcpkg et Conan, configure d abord le registre TitanCSA avec [le guide complet](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md). Le guide explique aussi Maven/Gradle, les prerequis et le chargement des DLL. Les pilotes/applications du produit sont installes separement. Les commandes marquees prevues ne sont pas encore disponibles.
 
