@@ -1,5 +1,11 @@
 # Process Trace Studio
 
+<!-- simple-start:start -->
+See when Windows programs start and stop.
+
+**Start here.** Start with the bundled example and check which events it displays.
+<!-- simple-start:end -->
+
 <!-- full-version-contact:start -->
 > [!IMPORTANT]
 > **Full version and commercial licensing**
@@ -167,5 +173,3 @@ Les anciens imports Go et versions JitPack gardent leurs tags. Pour les ancienne
 <!-- central-sdk-packages:end -->
 
 ## Commercial integration and support
-
-
