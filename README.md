@@ -3,7 +3,11 @@
 <!-- simple-start:start -->
 See when Windows programs start and stop.
 
-**Start here.** Start with the bundled example and check which events it displays.
+[First steps](#first-steps) · [Develop](#sdk-and-packages) · [Maintain](https://github.com/TitanCSA/sdk-packages/blob/main/CONTRIBUTING.md)
+
+## First steps
+
+Start with the bundled example and check which events it displays.
 <!-- simple-start:end -->
 
 <!-- full-version-contact:start -->
@@ -144,32 +148,11 @@ checks covered the same submitted code. Windows 11, HVCI, extended coexistence a
 production qualification remain pending. Microsoft signing is not certification.
 
 <!-- central-sdk-packages:start -->
-## Paquets et installation
+<a name="paquets-et-installation"></a>
 
-Les sources, licences, guides API et exemples sont regroupes dans [le depot SDK dedie](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio). Choisis le paquet a installer puis execute sa commande dans son dossier.
+## SDK and packages
 
-| Registre | Paquet | Installation / utilisation |
-| --- | --- | --- |
-| vcpkg | `process-trace-studio` | `vcpkg install process-trace-studio:x64-windows` |
-| Conan | `process-trace-studio` | `conan install --requires=process-trace-studio/0.1.0 -r titancsa --build=missing -s compiler.cppstd=17` |
-| NuGet | `Process-Trace-Studio.Native` | `Install-Package Process-Trace-Studio.Native -Version 0.1.0` |
-| NuGet | `ProcessTraceStudio.SDK` | `dotnet add package ProcessTraceStudio.SDK --version 1.0.0` |
-| PyPI | `process-trace-studio` | Commande prevue apres publication : `python -m pip install process-trace-studio==1.0.0` |
-| Conda | `process-trace-studio` | `conda install --override-channels -c https://raw.githubusercontent.com/TitanCSA/sdk-packages/089bc73095aa8eda89bacbe10d0b9e58394b0207/conda-channel -c conda-forge process-trace-studio` (canal TitanCSA) |
-| crates.io | `process-trace-studio` | `cargo add process-trace-studio@1.0.0` |
-| npm | `process-trace-studio` | Commande prevue apres publication : `npm install process-trace-studio@1.0.0` |
-| Maven Central | `io.github.titancsa:process-trace-studio` | `io.github.titancsa:process-trace-studio:1.0.0 (pom.xml / Gradle)` |
-| JitPack | `com.github.titanfyre:Process-Trace-Studio` | `com.github.titanfyre:Process-Trace-Studio:java-sdk-v1.0.0 (avec le depot JitPack)` |
-| Go Modules | `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | `go get github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
-| pkg.go.dev | `github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules` | `Documentation : https://pkg.go.dev/github.com/titanfyre/Process-Trace-Studio/Process-Trace-Studio-Go-modules@v1.0.0` |
-| PowerShell Gallery | `ProcessTraceStudio` | `Install-Module ProcessTraceStudio -RequiredVersion 1.0.0 -Scope CurrentUser` |
-| pub.dev | `process_trace_studio` | Commande prevue apres publication : `dart pub add process_trace_studio:1.0.0` |
-| RubyGems | `process-trace-studio` | `gem install process-trace-studio -v 1.0.0` |
-| Packagist | `titancsa/process-trace-studio` | `composer require titancsa/process-trace-studio:1.0.0` |
-
-Pour vcpkg et Conan, configure d abord le registre TitanCSA avec [le guide complet](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio/README.md). Le guide explique aussi Maven/Gradle, les prerequis et le chargement des DLL. Les pilotes/applications du produit sont installes separement. Les commandes marquees prevues ne sont pas encore disponibles.
-
-Les anciens imports Go et versions JitPack gardent leurs tags. Pour les anciennes archives SDK, utilise [les liens de remplacement](https://github.com/TitanCSA/sdk-packages/blob/main/release-assets/URL-MIGRATION.json).
+Choose a language in the [SDK and package guide](https://github.com/TitanCSA/sdk-packages/tree/main/projects/Process-Trace-Studio#readme) for exact install commands and examples. If your example requires a driver or app, install it separately.
 <!-- central-sdk-packages:end -->
 
 ## Commercial integration and support
